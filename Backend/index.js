@@ -6,6 +6,7 @@ import userRoute from "./Route/user.js";
 import noteRoute from "./Route/Todo.js";
 import cors from "cors";
 import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
 const PORT=process.env.PORT || 4011;
@@ -16,8 +17,8 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: "true",
-  redentials: true
+  origin: true,
+  credentials: true
 }));
 
 mongoose
@@ -36,12 +37,11 @@ app.use("/api/v1/note",noteRoute);
 
 const __dirname = path.resolve();
 
-app.use(express.static(path.join(__dirname, "../Frontend/dist")));
+app.use(express.static(path.join(__dirname, "Frontend/dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../Frontend/dist/index.html"));
+  res.sendFile(path.join(__dirname, "Frontend/dist/index.html"));
 });
-
 app.listen(PORT,()=>{
   console.log(`server is running on ${PORT}`);
 })
