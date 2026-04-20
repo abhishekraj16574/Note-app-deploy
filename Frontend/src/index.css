@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+
+@plugin "daisyui" {
+  themes: light --default, dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
