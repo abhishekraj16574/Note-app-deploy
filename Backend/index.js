@@ -36,12 +36,12 @@ app.use("/api/v1/user",userRoute);
 app.use("/api/v1/note",noteRoute);
 
 const __dirname = path.resolve();
-
 app.use(express.static(path.join(__dirname, "Frontend/dist")));
 
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "Frontend/dist/index.html"));
 });
+
 app.listen(PORT,()=>{
   console.log(`server is running on ${PORT}`);
 })
