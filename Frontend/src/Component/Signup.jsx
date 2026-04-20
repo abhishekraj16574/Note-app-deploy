@@ -18,7 +18,7 @@ const handleChange = (e)=>{
 const handleSubmit = async(e)=>{
   e.preventDefault();
   try{
-    const res = await axios.post("/api/v1/user/signup",formData,{withCredentials:true});
+    const res = await axios.post("https://note-app-7hll.onrender.com/api/v1/user/signup",formData,{withCredentials:true});
     setFormdata({
       name:'',
       email:"",

@@ -30,7 +30,7 @@ function Login() {
 
     try {
       const res = await axios.post(
-        "/api/v1/user/login",
+        "https://note-app-7hll.onrender.com/api/v1/user/login",
         formData,
         { withCredentials: true }
       );

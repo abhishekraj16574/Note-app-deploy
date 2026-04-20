@@ -11,7 +11,7 @@ function Home() {
 
   const fetchNotes = async () => {
     try {
-      const res = await axios.get("/api/v1/note/getnote", {
+      const res = await axios.get("https://note-app-7hll.onrender.com/api/v1/note/getnote", {
         withCredentials: true,
       });
       setNotes(res.data.notes);
@@ -24,7 +24,7 @@ function Home() {
     if (!title || !quotes) return;
     try {
       const res = await axios.post(
-        "/api/v1/note/newnote",
+        "https://note-app-7hll.onrender.com/api/v1/note/newnote",
         { title, quotes },
         { withCredentials: true }
       );
@@ -38,7 +38,7 @@ function Home() {
 
   const deleteNote = async (id) => {
     try {
-      await axios.delete(`/api/v1/note/deletenote/${id}`, {
+      await axios.delete(`https://note-app-7hll.onrender.com/api/v1/note/deletenote/${id}`, {
         withCredentials: true,
       });
       setNotes(notes.filter((n) => n._id !== id));

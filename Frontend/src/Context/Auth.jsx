@@ -9,7 +9,7 @@ export const AuthProvider = ({children}) =>{
 
   const fetchUser = async()=>{
     try{
-      const res = await axios.get("/api/v1/user/me",{
+      const res = await axios.get("https://note-app-7hll.onrender.com/api/v1/user/me",{
         withCredientials:true,
       })
       .then(res=>{
@@ -31,7 +31,7 @@ export const AuthProvider = ({children}) =>{
 
   const logout = async()=>{
     try{
-      await axios.post("/api/v1/user/logout",{withCredientials:true});
+      await axios.post("https://note-app-7hll.onrender.com/api/v1/user/logout",{withCredientials:true});
       setUser(null);
     }catch(error){
       console.log(error.message);
